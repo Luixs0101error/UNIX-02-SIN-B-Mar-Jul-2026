@@ -13,4 +13,10 @@ ls
 #Comprobar contenido
 cat doc_no_cifrado.txt
 #Encriptar 
-
+gpg --output doc_cifrado.txt --encrypt --recipient jeanellaparedes@gmail.com doc_no_ cifrado.txt
+#Descifrar
+gpg --decrypt doc_jeanella.txt
+#Firmar archivo
+gpg --output doc_no_cifrado_firmado.txt --clearsign doc_no_cifrado.txt
+#Verificar firma
+gpg --verify doc_no_cifrado_firmado.txt 
