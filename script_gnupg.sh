@@ -12,3 +12,5 @@ $ echo "Este mensaje es secreto" > doc_no_cifrado.txt
 ls 
 #Comprobar contenido
 cat doc_no_cifrado.txt
+#Encriptar 
+
