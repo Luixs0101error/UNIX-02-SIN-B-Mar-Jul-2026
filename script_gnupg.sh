@@ -6,3 +6,9 @@ gpg --armor --export-secret-keys DFA1A9B4A5C355EE
 gpg --list-keys
 #Importar llave publica mi amigo
 gpg --import MiCompa.asc
+#Mensaje a mi compa
+$ echo "Este mensaje es secreto" > doc_no_cifrado.txt
+#Comprobar la creación
+ls 
+#Comprobar contenido
+cat doc_no_cifrado.txt
