@@ -42,3 +42,5 @@ gpg --verify firmaseparadajeanella.sig doc_no_cifrado_fsjeanella.txt
 gpg --output doc_no_cifrado_y_firmado.txt --encrypt --sign --recipient 3B2DD130907A2F2E doc_no_cifrado.txt
 #Validate the signature and decrypt
 gpg --pinentry-mode loopback --output doc_cifrado_y_firmado_descifrado_y_validado.txt --decrypt doc_cifrado_y_firmado_jeanella.txt
+#Validate the decrypt of the document and the signature
+cat doc_cifrado_y_firmado_descifrado_y_validado.txt
