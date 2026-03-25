@@ -25,6 +25,8 @@ gpg output firma_separada_doc_no_cifrado.sig doc_no_cifrado.txt
 #Verificar firma de mi compañero
 gpg --verify doc_no_cifrado_firmado_jeanellafirmado.txt
 #Web of trust to our partner
-gpg --edit-key 7ABA372FA1S26A7CBFCD64DC73B2DD130907A2F2E
-#ign the key of our decision
+gpg --edit-key 7ABA372FA126A7CBFCD64DC73B2DD130907A2F2E
+#Sign the key of our decision
 gpg --sign-key 3B2DD130907A2F2E
+#Return to verify the signature sign of our partner
+gpg --verify doc_no_cifrado_firmado_jeanellafirmado.txt
