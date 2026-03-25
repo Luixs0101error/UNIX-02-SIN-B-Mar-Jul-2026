@@ -31,4 +31,8 @@ gpg --sign-key 3B2DD130907A2F2E
 #Return to verify the signature sign of our partner
 gpg --verify doc_no_cifrado_firmado_jeanellafirmado.txt
 #Sign the document in binary
- gpg --output doc_no_cifrado_firmado_binario.txt --sign doc_no_cifrado.txt
+gpg --output doc_no_cifrado_firmado_binario.txt --sign doc_no_cifrado.txt
+#Verify the signature in binary of our partner
+gpg --verify binario_jeanella.txt
+# Sign a document with a separate document 
+gpg --output firma_separada_doc_no_difrado.sig --detach-sign doc_no_cifrado.txt
