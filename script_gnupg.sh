@@ -20,3 +20,7 @@ gpg --decrypt doc_jeanella.txt
 gpg --output doc_no_cifrado_firmado.txt --clearsign doc_no_cifrado.txt
 #Verificar firma
 gpg --verify doc_no_cifrado_firmado.txt 
+#Firma separada
+gpg output firma_separada_doc_no_cifrado.sig doc_no_cifrado.txt
+#Verificar firma de mi compañero
+gpg --verify doc_no_cifrado_firmado_jeanellafirmado.txt
