@@ -38,3 +38,7 @@ gpg --verify binario_jeanella.txt
 gpg --output firma_separada_doc_no_difrado.sig --detach-sign doc_no_cifrado.txt
 #Verify the separate signature of our parent
 gpg --verify firmaseparadajeanella.sig doc_no_cifrado_fsjeanella.txt
+#Sign and encrypt a document
+gpg --output doc_no_cifrado_y_firmado.txt --encrypt --sign --recipient 3B2DD130907A2F2E doc_no_cifrado.txt
+#Validate the signature and decrypt
+gpg --pinentry-mode loopback --output doc_cifrado_y_firmado_descifrado_y_validado.txt --decrypt doc_cifrado_y_firmado_jeanella.txt
