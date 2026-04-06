@@ -22,4 +22,11 @@ stat .
 #The first number (0) is the major device number.
 #The second number (45) is the minor device number.
 Device: 0,45
-
+#Create directories /tmp/prueba/sub1 and /tmp/prueba/sub2
+# -p creates parent directories if they do not exist
+mkdir -p /tmp/prueba/sub1 /tmp/prueba/sub2
+#Show detailed information about the /tmp/prueba directory
+stat /tmp/prueba
+#Open the manual page for the mkdir command 
+#It shows the description, options, and usage examples
+man mkdir
