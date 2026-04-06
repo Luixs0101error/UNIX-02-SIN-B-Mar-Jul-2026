@@ -30,3 +30,27 @@ stat /tmp/prueba
 #Open the manual page for the mkdir command 
 #It shows the description, options, and usage examples
 man mkdir
+# Where am I
+pwd
+#Who am I
+whoami
+#List files and directories in the current directory
+ls
+#List files in long format (permissions, owner, size, date)
+ls -l
+#List all files (including hidden files) in long format
+ls -la
+# List files in long format with human-readable file sizes
+ls -lh  
+#When it was modified each file
+ls -lt
+#List all directories and files in the root directory
+ls /
+#List the first 20 entries inside /etc
+# head -20 shows the first 20 lines of the output
+ls /etc | head -20
+#List the first 20 entries inside /dev
+ls /dev | head -20
+#List the last 20 entries inside /etc
+#Tail -20 shows the last 20 lines of the output
+ls /etc | tail -20
