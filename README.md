@@ -39,3 +39,32 @@ cd linux
 make menuconfig
 #make
 make -j 2
+#check the CPU cores I have
+nproc
+#check the install is correct
+
+#Create the /boot-files directory in the root filesystem.
+#The -p option ensures the directory is created even if parent directories are missing.
+sudo mkdir -p /boot-files
+
+#Copy the compiled Linux kernel image (bzImage) 
+#from the arch/x86/boot directory to /boot-files.
+sudo cp arch/x86/boot/bzImage /boot-files/
+
+#Clone the BusyBox source code repository.
+#The --depth 1 flag performs a shallow clone (only the latest commit),
+#reducing download size and time.
+git clone --depth 1 https://git.busybox.net/busybox
+
+#Change the current working directory to the busybox folder.
+cd busybox
+
+#Launch the BusyBox configuration interface.
+#This menu allows you to customize which utilities and features will be included before compilation.
+make menuconfig
+
+#
+ed -i 's/^CONFIG_TC=y/CONFIG_TC=n/' .config
+#
+grep CONFIG_TC .config
+
