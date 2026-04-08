@@ -63,8 +63,56 @@ cd busybox
 #This menu allows you to customize which utilities and features will be included before compilation.
 make menuconfig
 
-#
-ed -i 's/^CONFIG_TC=y/CONFIG_TC=n/' .config
-#
+#Disable the tc command in BusyBox configuration to avoid compilation errors
+sed -i 's/^CONFIG_TC=y/CONFIG_TC=n/' .config
+
+#Verify that the CONFIG_TC option is now disabled
 grep CONFIG_TC .config
 
+#Create the directory that will contain the initramfs filesystem
+sudo mkdir -p /boot-files/initramfs
+
+#Install BusyBox binaries and symbolic links into the initramfs directory
+sudo make CONFIG_PREFIX=/boot-files/initramfs install
+
+#List installed BusyBox commands to verify successful installation
+ls /boot-files/initramfs/bin
+
+#Change directory to the root of the initramfs
+cd /boot-files/initramfs
+
+#Attempt to edit the init file (may fail in Codespaces)
+sudo nano init
+
+#Create an empty init file if it does not exist
+sudo touch init
+
+#Write the shebang line to specify the shell interpreter
+echo '#!/bin/sh' | sudo tee init
+
+#Add a command to launch a BusyBox shell as the init process (PID 1)
+echo '/bin/sh' | sudo tee -a init
+
+#Remove the default linuxrc file created by BusyBox to avoid conflicts
+sudo rm -f linuxrc
+
+#Make the init script executable so the kernel can run it
+sudo chmod +x init
+
+#Display the contents of the init script for verification
+cat init
+
+#Show file permissions to confirm the init script is executable
+ls -l init
+
+#Attempt to create the initramfs archive (may fail due to permissions)
+sudo find . | cpio -o -H newc > ../init.cpio
+
+#Correctly create the initramfs archive using sudo for the output file
+sudo find . | cpio -o -H newc | sudo tee ../init.cpio > /dev/null
+
+#Verify that the initramfs archive was created successfully
+ls -l ../init.cpio
+
+#Boot the custom Linux system using QEMU with kernel and initramfs
+qemu-system-x86_64 -nographic -append "console=ttyS0" -kernel bzImage -initrd init.cpio
