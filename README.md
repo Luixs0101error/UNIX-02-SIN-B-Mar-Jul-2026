@@ -89,7 +89,6 @@ sudo touch init
 
 #Write the shebang line to specify the shell interpreter
 echo '#!/bin/sh' | sudo tee init
-
 #Add a command to launch a BusyBox shell as the init process (PID 1)
 echo '/bin/sh' | sudo tee -a init
 
