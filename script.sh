@@ -18,3 +18,13 @@ rmdir -- -rf    # removes the empty directory named "-rf"
 
 ls --help    # shows a quick help message with available options for ls
 man ls       # opens the manual page with detailed documentation for ls
+
+--depth <depth>
+           #Create a shallow clone with a history truncated to the specified number of commits. Implies --single-branch
+           #unless --no-single-branch is given to fetch the histories near the tips of all branches. If you want to
+           #clone submodules shallowly, also pass --shallow-submodules.
+
+chmod +x script.sh              # gives execute permission to all users (user, group, others)
+chmod u+x script.sh             # gives execute permission only to the owner (user)
+chmod o-r script.sh             # removes read permission from others
+chmod u+rw,go-rwx script.sh     # gives read and write to user; removes all permissions from group and others
