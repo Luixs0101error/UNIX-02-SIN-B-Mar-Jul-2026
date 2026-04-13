@@ -15,3 +15,6 @@ ls -l -ah      # lists in long format, includes hidden files, and shows human-re
 
 mkdir -- -rf    # creates a directory literally named "-rf" (the -- stops option parsing)
 rmdir -- -rf    # removes the empty directory named "-rf"
+
+ls --help    # shows a quick help message with available options for ls
+man ls       # opens the manual page with detailed documentation for ls
