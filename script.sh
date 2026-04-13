@@ -12,3 +12,6 @@ ls -l -ah      # same as above, combined options (-l -a -h)
 ls -lah        # same as above, all options combined in one
 ls -l          # lists files in long format (permissions, owner, size, date)
 ls -l -ah      # lists in long format, includes hidden files, and shows human-readable sizes
+
+mkdir -- -rf    # creates a directory literally named "-rf" (the -- stops option parsing)
+rmdir -- -rf    # removes the empty directory named "-rf"
