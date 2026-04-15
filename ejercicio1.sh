@@ -32,8 +32,8 @@ ls -l hola.sh
 ls /etc
 # Creates a file inside /etc (requires sudo)
 touch /etc/prueba.txt
-# Creates a directory in root (requires sudo)
-mkdir /mi_carpeta
+# Creates a directory in the home directory 
+mkdir ~/mi_carpeta
 # Installs a package (requires sudo)
 apt install cowsay
 
