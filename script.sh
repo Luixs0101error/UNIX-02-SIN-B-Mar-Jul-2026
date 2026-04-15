@@ -28,3 +28,5 @@ chmod +x script.sh              # gives execute permission to all users (user, g
 chmod u+x script.sh             # gives execute permission only to the owner (user)
 chmod o-r script.sh             # removes read permission from others
 chmod u+rw,go-rwx script.sh     # gives read and write to user; removes all permissions from group and others
+
+sudo echo "hola"> /etc/archivo_protegido  #It doesn’t work in Codespaces because even if you use sudo, the redirection (>) is handled by the shell without elevated permissions, so it can’t write to protected system files.
