@@ -30,3 +30,6 @@ chmod o-r script.sh             # removes read permission from others
 chmod u+rw,go-rwx script.sh     # gives read and write to user; removes all permissions from group and others
 
 sudo echo "hola"> /etc/archivo_protegido  #It doesn’t work in Codespaces because even if you use sudo, the redirection (>) is handled by the shell without elevated permissions, so it can’t write to protected system files.
+
+echo "hola" | sudo tee /etc/archivo_protegido > /dev/null #Writes “hola” to a protected file using sudo tee, and > /dev/null hides the output so nothing is printed on screen.
+echo "hola" | sudo tee /etc/archivo_protegido #Writes “hola” to /etc/archivo_protegido using sudo tee, allowing elevated permissions to create or overwrite the file.
