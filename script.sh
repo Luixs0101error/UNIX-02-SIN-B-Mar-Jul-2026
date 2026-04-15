@@ -38,3 +38,7 @@ sudo sh -c 'echo "chao" >> /etc/archivo_protegido' #Appends “chao” to /etc/a
 
 sudo su - Switches to the root user with a login shell, giving full administrative privileges.
 
+echo "$HOME" #prints the value of the HOME variable (your home directory)
+echo '$HOME' #prints the literal text $HOME (no variable expansion)
+
+
