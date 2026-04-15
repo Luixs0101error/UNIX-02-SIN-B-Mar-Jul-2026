@@ -36,5 +36,5 @@ echo "hola" | sudo tee /etc/archivo_protegido #Writes “hola” to /etc/archivo
 
 sudo sh -c 'echo "chao" >> /etc/archivo_protegido' #Appends “chao” to /etc/archivo_protegido by running the whole command as root, so the redirection (>>) works with elevated permissions.
 
-
+sudo su - Switches to the root user with a login shell, giving full administrative privileges.
 
