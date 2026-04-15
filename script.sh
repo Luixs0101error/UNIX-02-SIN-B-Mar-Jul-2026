@@ -33,3 +33,8 @@ sudo echo "hola"> /etc/archivo_protegido  #It doesn’t work in Codespaces becau
 
 echo "hola" | sudo tee /etc/archivo_protegido > /dev/null #Writes “hola” to a protected file using sudo tee, and > /dev/null hides the output so nothing is printed on screen.
 echo "hola" | sudo tee /etc/archivo_protegido #Writes “hola” to /etc/archivo_protegido using sudo tee, allowing elevated permissions to create or overwrite the file.
+
+sudo sh -c 'echo "chao" >> /etc/archivo_protegido' #Appends “chao” to /etc/archivo_protegido by running the whole command as root, so the redirection (>>) works with elevated permissions.
+
+
+
