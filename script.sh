@@ -42,3 +42,4 @@ echo "$HOME" #prints the value of the HOME variable (your home directory)
 echo '$HOME' #prints the literal text $HOME (no variable expansion)
 
 
+UMASK #Defect mask   0022
