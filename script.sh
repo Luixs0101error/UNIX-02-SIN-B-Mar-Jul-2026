@@ -43,3 +43,40 @@ echo '$HOME' #prints the literal text $HOME (no variable expansion)
 
 
 UMASK #Defect mask   0022
+# Creates an empty file named archivo1
+touch archivo1
+
+# Creates a directory named directorio1
+mkdir directorio1
+
+# Lists files and directories with detailed information
+ls -l
+#-rw-rw-rw-  1 codespace root      34523 Apr 27 12:06 LICENSE
+#-rw-rw-rw-  1 codespace root         70 Apr 27 12:06 README.md
+#-rw-rw-rw-  1 codespace codespace     0 Apr 27 12:33 archivo1
+#drwxrwxrwx+ 2 codespace codespace  4096 Apr 27 12:33 directorio1
+#-rw-rw-rw-  1 codespace root        881 Apr 27 12:06 ejercicio1.sh
+#-rw-rw-rw-  1 codespace root        357 Apr 27 12:06 ejercicio2.sh
+#-rwxrwxrwx  1 codespace root         10 Apr 27 12:06 hola.sh
+#-rw-rw-rw-  1 codespace root       2799 Apr 27 12:33 script.sh
+
+# Sets default permissions mask (new files: 640, new directories: 750)
+umask 027
+
+# Creates an empty file named archivo2
+touch archivo2
+
+# Creates a directory named directorio2
+mkdir directorio2
+
+# Lists files and directories with detailed permissions
+ls -l
+#rw-rw-rw-  1 codespace root         70 Apr 27 12:06 README.md
+#-rw-rw-rw-  1 codespace codespace     0 Apr 27 12:33 archivo1
+#-rw-rw-rw-  1 codespace codespace     0 Apr 27 12:37 archivo2
+#drwxrwxrwx+ 2 codespace codespace  4096 Apr 27 12:33 directorio1
+#drwxrwxrwx+ 2 codespace codespace  4096 Apr 27 12:37 directorio2
+#-rw-rw-rw-  1 codespace root        881 Apr 27 12:06 ejercicio1.sh
+#-rw-rw-rw-  1 codespace root        357 Apr 27 12:06 ejercicio2.sh
+#-rwxrwxrwx  1 codespace root         10 Apr 27 12:06 hola.sh
+#-rw-rw-rw-  1 codespace root       3493 Apr 27 12:36 script.sh
