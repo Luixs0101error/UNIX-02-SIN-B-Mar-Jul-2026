@@ -107,3 +107,36 @@ mkdir privado
 
 # Lists files and directories with detailed permissions
 ls -l
+
+# Shows the groups of the current user
+groups
+
+# Creates a new group named grupo_test (requires sudo)
+groupadd grupo_test
+
+# Shows the groups again
+groups
+
+# Creates a file named comun
+touch comun
+
+# Lists detailed information of the file
+ls -l comun
+
+# Changes owner to user 'luna' and group to 'grupo_test' (requires sudo)
+sudo chown luna:grupo_test mi_archivo
+
+# Shows updated ownership and permissions
+ls -l mi_archivo
+
+# Creates directory 'proyecto' and subdirectory 'sub' (creates parents if needed)
+mkdir -p proyecto/sub
+
+# Creates files 'readme' and 'datos' inside the structure
+touch proyecto/readme proyecto/sub/datos
+
+# Changes owner to user 'luna' and group 'grupo_test' recursively (requires sudo)
+sudo chown -R luna:grupo_test proyecto
+
+# Lists all files and directories recursively with detailed information
+ls -lR proyecto
