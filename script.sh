@@ -80,3 +80,30 @@ ls -l
 #-rw-rw-rw-  1 codespace root        357 Apr 27 12:06 ejercicio2.sh
 #-rwxrwxrwx  1 codespace root         10 Apr 27 12:06 hola.sh
 #-rw-rw-rw-  1 codespace root       3493 Apr 27 12:36 script.sh
+
+# Updates the package list (requires sudo)
+sudo apt-get update
+
+# Upgrades installed packages (requires sudo)
+sudo apt upgrade
+
+# Installs ACL package (requires sudo)
+sudo apt-get install acl
+
+# Changes ownership of current directory and its contents to the current user (requires sudo)
+sudo chown -R $(whoami) .
+
+# Removes all ACL permissions recursively (requires sudo)
+sudo setfacl -bnR .
+
+# Sets a restrictive default permission mask (files: 600, directories: 700)
+umask 077
+
+# Creates a file with restricted permissions
+touch secreto.txt
+
+# Creates a private directory
+mkdir privado
+
+# Lists files and directories with detailed permissions
+ls -l
