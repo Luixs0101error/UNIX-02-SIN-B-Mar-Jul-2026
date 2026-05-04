@@ -22,4 +22,19 @@ ls -lr
 # EN: Long listing in reverse order (combined options)
 # ES: Listado largo en orden inverso (opciones combinadas)
 
+aptitude moo
+# EN: Runs an Easter Egg message from aptitude
+# ES: Ejecuta un mensaje oculto (Easter Egg) de aptitude
+
+aptitude -v moo
+# EN: Runs the command with verbose output
+# ES: Ejecuta el comando en modo detallado (verbose)
+
+aptitude -vv moo
+# EN: Increases the verbosity level
+# ES: Aumenta el nivel de detalle del mensaje
+
+aptitude -vvv moo
+# EN: Shows a different response with higher verbosity
+# ES: Muestra una respuesta diferente con mayor verbosidad
 
