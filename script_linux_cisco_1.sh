@@ -94,3 +94,91 @@ ls -r /var/log
 # EN: Lists files in reverse alphabetical order
 # ES: Lista los archivos en orden alfabético inverso
 
+su -
+# EN: Switches to the root user and starts a login shell
+# ES: Cambia al usuario root e inicia una sesión de inicio
+
+exit
+# EN: Exits the current shell or user session
+# ES: Sale de la sesión o usuario actual
+
+sl
+# EN: Tries to run the sl command without administrative privileges
+# ES: Intenta ejecutar el comando sl sin privilegios administrativos
+
+sudo sl
+# EN: Runs the sl command with administrative privileges
+# ES: Ejecuta el comando sl con privilegios administrativos
+
+pwd
+# EN: Prints the current working directory
+# ES: Muestra el directorio de trabajo actual
+
+cd Documents
+# EN: Changes to the Documents directory using a relative path
+# ES: Cambia al directorio Documents usando una ruta relativa
+
+cd ~/Documents
+# EN: Changes to the Documents directory using the home path
+# ES: Cambia al directorio Documents usando la ruta del directorio personal
+
+ls
+# EN: Lists files and directories in the current directory
+# ES: Lista archivos y directorios del directorio actual
+
+ls -l
+# EN: Displays files with detailed information (permissions, owner, size)
+# ES: Muestra archivos con información detallada (permisos, propietario, tamaño)
+
+ls -l hello.sh
+# EN: Displays detailed information about the file hello.sh
+# ES: Muestra información detallada del archivo hello.sh
+
+./hello.sh
+# EN: Attempts to execute a script without execute permission
+# ES: Intenta ejecutar un script sin permiso de ejecución
+
+chmod u+x hello.sh
+# EN: Adds execute permission to the file owner
+# ES: Agrega permiso de ejecución al propietario del archivo
+
+sudo chown root hello.sh
+# EN: Changes the owner of hello.sh to root
+# ES: Cambia el propietario del archivo hello.sh a root
+
+sudo ./hello.sh
+# EN: Executes the script with administrative privileges
+# ES: Ejecuta el script con privilegios administrativos
+
+cat animals.txt
+# EN: Displays the entire contents of the file animals.txt
+# ES: Muestra todo el contenido del archivo animals.txt
+
+cat alpha.txt
+# EN: Displays all lines of the file alpha.txt
+# ES: Muestra todas las líneas del archivo alpha.txt
+
+head alpha.txt
+# EN: Shows the first lines of the file alpha.txt
+# ES: Muestra las primeras líneas del archivo alpha.txt
+
+tail alpha.txt
+# EN: Shows the last lines of the file alpha.txt
+# ES: Muestra las últimas líneas del archivo alpha.txt
+
+head -n 5 alpha.txt
+# EN: Shows the first 5 lines of the file alpha.txt
+# ES: Muestra las primeras 5 líneas del archivo alpha.txt
+
+tail -n 5 alpha.txt
+# EN: Shows the last 5 lines of the file alpha.txt
+# ES: Muestra las últimas 5 líneas del archivo alpha.txt
+
+cp /etc/passwd .
+# EN: Copies the passwd file to the current directory
+# ES: Copia el archivo passwd al directorio actual
+
+dd if=/dev/zero of=/tmp/swapex bs=1M count=50
+# EN: Creates a 50MB file filled with zeros
+# ES: Crea un archivo de 50MB lleno de ceros
+
