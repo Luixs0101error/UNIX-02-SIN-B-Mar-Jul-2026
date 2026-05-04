@@ -182,3 +182,4 @@ dd if=/dev/zero of=/tmp/swapex bs=1M count=50
 # EN: Creates a 50MB file filled with zeros
 # ES: Crea un archivo de 50MB lleno de ceros
 
+https://portal.netdevgroup.com/learn/a297720f-e875-4ce4-81b6-a2288c49eb9d/C5JcVstK91
