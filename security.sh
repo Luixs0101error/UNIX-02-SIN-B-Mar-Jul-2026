@@ -101,3 +101,12 @@ touch ~/lab_chgrp/proyectos/deploy.sh
 #VIEW INITIAL STATE
 ls -la ~/lab_chgrp/proyectos/
 ls -la ~/lab_chgrp/reportes/
+#change the group of a file
+chgrp desarrolladores ~/lab_chgrp/proyectos/app.py
+ls -la ~/lab_chgrp/proyectos/
+#change the group of multiple files
+chgrp diseno \
+~/lab_chgrp/proyectos/config.json \
+~/lab_chgrp/reportes/informe.txt
+ls -la ~/lab_chgrp/proyectos/
+ls -la ~/lab_chgrp/reportes/ 
