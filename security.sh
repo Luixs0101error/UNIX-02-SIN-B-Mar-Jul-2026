@@ -37,3 +37,21 @@ cat /etc/gshadow
 # EN: Displays the /etc/gshadow file, which contains sensitive group
 #     information such as passwords and group administrators.
 
+mkdir ~/proyecto_unix/
+# ES: Crea el directorio "proyecto_unix" dentro del directorio personal del usuario.
+# EN: Creates the "proyecto_unix" directory inside the user's home directory.
+
+ls -la ~/proyecto_unix/
+# ES: Lista el contenido del directorio "proyecto_unix" mostrando todos los archivos
+#     (incluidos los ocultos) con información detallada.
+# EN: Lists the contents of the "proyecto_unix" directory showing all files
+#     (including hidden ones) with detailed information.
+
+#groupadd[options]name_groups
+#Create a simple group
+#Cuando un identificador es menor a 1000 es un identificador de sistema
+groupadd desarrolladores
+#Specific GID
+groupadd -g 2000 operaciones
+#System group
+groupadd --system servicios_web
