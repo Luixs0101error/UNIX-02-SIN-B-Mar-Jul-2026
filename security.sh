@@ -90,3 +90,5 @@ usermod -aG grupo_temporal root
 id root
 #ERROR
 usermod -G desarrolladores root
+#Restore
+usermod -aG diseno,marketing,grupo_temporal root
