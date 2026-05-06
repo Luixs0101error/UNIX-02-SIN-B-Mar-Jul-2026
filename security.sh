@@ -110,3 +110,7 @@ chgrp diseno \
 ~/lab_chgrp/reportes/informe.txt
 ls -la ~/lab_chgrp/proyectos/
 ls -la ~/lab_chgrp/reportes/ 
+#Change all the directory
+sudo chgrp -R desarrolladores ~/lab_chgrp/scripts/
+#Use verbose to see what changes
+ls -laR ~/lab_chgrp/scripts/
