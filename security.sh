@@ -98,3 +98,6 @@ touch ~/lab_chgrp/proyectos/app.py
 touch ~/lab_chgrp/proyectos/config.json
 touch ~/lab_chgrp/proyectos/informe.txt
 touch ~/lab_chgrp/proyectos/deploy.sh
+#VIEW INITIAL STATE
+ls -la ~/lab_chgrp/proyectos/
+ls -la ~/lab_chgrp/reportes/
