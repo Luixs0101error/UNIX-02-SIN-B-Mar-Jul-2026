@@ -80,4 +80,7 @@ grep "diseno\|marketing\|cache_web" /etc/group
 groups
 id
 usermod -aG desarrolladores root
-
+#add a user
+adduser root marketing
+#see current status
+id root
