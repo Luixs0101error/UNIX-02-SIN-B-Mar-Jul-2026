@@ -84,3 +84,9 @@ usermod -aG desarrolladores root
 adduser root marketing
 #see current status
 id root
+#Create temporary group
+groupadd grupo_temporal
+usermod -aG grupo_temporal root
+id root
+#ERROR
+usermod -G desarrolladores root
