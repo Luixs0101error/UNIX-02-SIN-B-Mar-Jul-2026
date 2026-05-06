@@ -55,3 +55,8 @@ groupadd desarrolladores
 groupadd -g 2000 operaciones
 #System group
 groupadd --system servicios_web
+#Verify creation
+grep "desarrolladores\|operaciones\|servicios_web" /etc/group 
+grep -E "desarrolladores|operaciones|servicios_web" /etc/group
+#Main options
+groupadd --help
