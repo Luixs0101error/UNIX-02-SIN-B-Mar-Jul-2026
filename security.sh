@@ -68,3 +68,16 @@ grep "GID_MIN\|GID_MAX\|SYS_GID" /etc/login.defs
 #SYS_GID_MAX=999
 #GID_MIN=1000
 #GID_MAX=60000
+
+#Sistaxy Basic
+#Create group
+addgroup diseno
+addgroup --gid 2100 marketing
+addgroup --system cache_web
+#Verify
+grep "diseno\|marketing\|cache_web" /etc/group
+#Verify and groups
+groups
+id
+usermod -aG desarrolladores root
+
