@@ -60,3 +60,11 @@ grep "desarrolladores\|operaciones\|servicios_web" /etc/group
 grep -E "desarrolladores|operaciones|servicios_web" /etc/group
 #Main options
 groupadd --help
+#View the range of GIDs in the system
+grep "GID_MIN\|GID_MAX\|SYS_GID" /etc/login.defs
+#System groups have a GID lower than the minimum user
+#In Ubuntu, typically
+#SYS_GID_MIN=100
+#SYS_GID_MAX=999
+#GID_MIN=1000
+#GID_MAX=60000
