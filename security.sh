@@ -92,3 +92,9 @@ id root
 usermod -G desarrolladores root
 #Restore
 usermod -aG diseno,marketing,grupo_temporal root
+#prepare the practice scenario
+mkdir -p ~/lab_chgrp/{proyectos,reportes,scripts}
+touch ~/lab_chgrp/proyectos/app.py
+touch ~/lab_chgrp/proyectos/config.json
+touch ~/lab_chgrp/proyectos/informe.txt
+touch ~/lab_chgrp/proyectos/deploy.sh
