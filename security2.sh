@@ -39,3 +39,6 @@ exit
 id -gn
 echo "Grupo restaurado: $(id -gn)"
 
+#Compare the two groups
+ls -la ~/antes_de_newgrp.txt ~/dentro_de_newgrp.txt
+
