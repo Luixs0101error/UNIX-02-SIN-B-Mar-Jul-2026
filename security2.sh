@@ -52,3 +52,10 @@ echo "PID dentro de newgrp: $$"
 sudo groupadd grupo_restringido
 sudo gpasswd grupo_restringido
 #The system will ask for a password for the group
+
+#A user who does not belong to the group can join temporarily if they know the password.
+newgrp grupo_restringido
+#The system will ask for the group password
+#If the password is correct, you will be temporarily connected
+id -gn
+#exit# Upon leaving, you lose your temporary membership.
