@@ -22,3 +22,13 @@ echo "Nuevo grupo activo: $(id -gn)"
 sudo apt install util-linux-extra
 #Create to group
 group add desarrolladores
+
+#Create a file inside of the subshell
+touch ~/dentro_de_newgrp.txt
+ls -la ~/dentro_de_newgrp.txt
+
+#The group now it is 'desarrolladores'
+#Create a directory
+mkdir -p ~/proyecto_dev/src
+ls -la ~/
+
