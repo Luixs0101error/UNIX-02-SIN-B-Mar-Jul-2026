@@ -46,4 +46,9 @@ ls -la ~/antes_de_newgrp.txt ~/dentro_de_newgrp.txt
 echo "PID del shell actual: $$"
 newgrp desarrolladores
 echo "PID dentro de newgrp: $$"
-#The PID es different-process son
+#The PID es different-Son process
+
+#Create a group with password
+sudo groupadd grupo_restringido
+sudo gpasswd grupo_restringido
+#The system will ask for a password for the group
