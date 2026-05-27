@@ -32,3 +32,10 @@ ls -la ~/dentro_de_newgrp.txt
 mkdir -p ~/proyecto_dev/src
 ls -la ~/
 
+#proyecto_dev/ has a group 'desarrolladores'
+#Exit of the subshell the newgrp
+exit 
+#Verify that we returned to the original group
+id -gn
+echo "Grupo restaurado: $(id -gn)"
+
