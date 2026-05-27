@@ -11,3 +11,14 @@ echo "Grupo actual: $(id -gn)"
 #Create a file before newgrp
 touch ~/antes_de_newgrp.txt
 ls -la ~/antes_de_newgrp.txt 
+
+#Change to "developers" group
+newgrp desarrolladores
+#Verify that the active group changed
+id -gn
+echo "Nuevo grupo activo: $(id -gn)"
+
+#Install newgrp
+sudo apt install util-linux-extra
+#Create to group
+group add desarrolladores
