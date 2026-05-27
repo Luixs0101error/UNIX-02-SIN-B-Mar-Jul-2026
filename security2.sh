@@ -42,3 +42,8 @@ echo "Grupo restaurado: $(id -gn)"
 #Compare the two groups
 ls -la ~/antes_de_newgrp.txt ~/dentro_de_newgrp.txt
 
+#newgrp create a subshell
+echo "PID del shell actual: $$"
+newgrp desarrolladores
+echo "PID dentro de newgrp: $$"
+#The PID es different-process son
