@@ -224,7 +224,7 @@ __set_prompt(){
     local ec=$?
     local mark
     if [ $ec -eq 0 ]; then
-        mark='\[e[32m\]✓\[\e[0m\]'
+        mark='\[\e[32m\]✓\[\e[0m\]'
     else
         mark="\[\e[31m\]✗ $ec\[\e[0m\]"
     fi

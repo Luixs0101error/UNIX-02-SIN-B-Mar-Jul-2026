@@ -27,3 +27,5 @@ print_name
 # The variable 'name' is not available here because it was
 # declared as local inside the function scope.
 echo "Variable ${name} will not be printed because it is a local variable."
+
+
