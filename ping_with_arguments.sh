@@ -6,10 +6,9 @@ echo "Running the script ${SCRIPT_NAME}..."
 echo "Pinging the target: ${TARGET}..."
 ping -c 3 "${TARGET}"
 
-chmod u+x ping_with_arguments.sh
-./ping_with_arguments.sh nostarch.com
+#chmod u+x ping_with_arguments.sh
+#./ping_with_arguments.sh nostarch.com
 
-ping -c 3 "${TARGET}"
 
 echo "The arguments are: $@"
 echo "The total number of arguments is: $#"
@@ -17,3 +16,4 @@ echo "The total number of arguments is: $#"
 for args in "$@"; do
  echo "${args}"
 done
+
