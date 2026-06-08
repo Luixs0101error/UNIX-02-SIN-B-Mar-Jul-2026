@@ -61,6 +61,11 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # normales (no-root) deben poder capturar paquetes. Como en el contenedor
 # siempre somos root, respondemos "false" POR ADELANTADO usando
 # debconf-set-selections para que no detenga el build esperando input.
+
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# El pipe (|) envía la salida de un comando como entrada de otro comando.
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
 
@@ -83,6 +88,12 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 # El "&&" encadena comandos: ejecuta el siguiente SOLO SI el anterior
 # terminó bien. Si algo falla, el build se detiene con error (que es lo
 # que queremos: mejor un error claro que una imagen rota).
+
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# El operador && ejecuta el siguiente comando únicamente si el anterior
+# terminó correctamente.
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 RUN apt-get update && apt-get install -y --no-install-recommends \
     \
     # === Editores de texto y shells (intérpretes de comandos) ===
@@ -171,6 +182,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # --- Después de instalar, activamos el idioma español ---
  # sed busca "# es_ES.UTF-8" en /etc/locale.gen y le quita el "#" para
  # activar esa línea. Luego locale-gen compila los archivos de idioma.
+
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# && continúa ejecutando los siguientes comandos solo si no hubo errores.
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
  && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
  && locale-gen \
  \
@@ -206,6 +222,12 @@ WORKDIR /workspaces
 # - pull.rebase false: merge por defecto al hacer pull (más intuitivo)
 # - git lfs install --system: registra los hooks de LFS globalmente para
 #   que, si un repo los necesita, funcionen sin sorpresas.
+
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# && permite encadenar varios comandos.
+# Cada comando se ejecuta únicamente si el anterior fue exitoso.
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
@@ -219,9 +241,64 @@ RUN git config --system --add safe.directory '*' \
 # definida para que la imagen sea usable también con Docker puro.
 # Prompt del curso para bash
 
-RUN chsh -s /usr/bin/zsh root
-RUN cat >> /root/.zshrc <<'EOF'
-PROMPT='%F{cyan}[Luis-Quisnancela]%f %F{yellow}%1~%f %(?.%F{green}ok.%F{red} No )%f %#'
-EOF
-CMD ["usr/bin/zsh"]
+# Prompt del curso para bash
 
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# >> agrega contenido al final de un archivo sin borrar su contenido.
+#
+# EOF inicia un Here Document (Heredoc). Todo el texto escrito hasta
+# encontrar otro EOF será copiado literalmente al archivo .bashrc.
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+RUN cat >> /root/.bashrc <<'EOF'
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Función Bash.
+# Permite agrupar instrucciones para reutilizarlas posteriormente.
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+__set_prompt(){
+
+    #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    # local crea variables locales.
+    # Solo existen dentro de esta función.
+    #
+    # $? contiene el código de salida del último comando:
+    # 0 = éxito
+    # distinto de 0 = error
+    #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    local ec=$?
+    local mark
+
+    #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    # if evalúa una condición.
+    # Comprueba si el último comando terminó correctamente.
+    #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    if [ $ec -eq 0 ]; then
+        mark='\[\e[32m\]✓\[\e[0m\]'
+    else
+        mark="\[\e[31m\]✗ $ec\[\e[0m\]"
+    fi
+
+    #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    # PS1 define el prompt de Bash.
+    # \W muestra el directorio actual.
+    # \e permite utilizar colores ANSI.
+    #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    PS1="\[\e[36m\][Luis-Quisnancela]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $mark \$ "
+}
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# PROMPT_COMMAND ejecuta la función antes de mostrar cada prompt.
+# Así el prompt se actualiza después de cada comando.
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+PROMPT_COMMAND=__set_prompt
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# EOF finaliza el Here Document iniciado anteriormente.
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+EOF
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# CMD define el comando que se ejecutará por defecto al iniciar
+# el contenedor.
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+CMD ["/usr/bin/bash"]
