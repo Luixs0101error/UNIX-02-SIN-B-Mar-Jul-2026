@@ -10,3 +10,6 @@ chmod u+x ping_with_arguments.sh
 ./ping_with_arguments.sh nostarch.com
 
 ping -c 3 "${TARGET}"
+
+echo "The arguments are: $@"
+echo "The total number of arguments is: $#"
