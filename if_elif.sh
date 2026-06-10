@@ -4,7 +4,7 @@
 USER_INPUT="${1}"
 # Stores the first argument passed to the script in the variable USER_INPUT
 
-❶ if [[ -z "${USER_INPUT}" ]]; then
+if [[ -z "${USER_INPUT}" ]]; then
 # Checks if USER_INPUT is empty (no argument was provided)
 
  echo "You must provide an argument!"
