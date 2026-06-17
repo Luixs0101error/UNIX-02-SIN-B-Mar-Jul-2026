@@ -74,3 +74,5 @@ nohup ./exercise2.sh &
 #[1] 35595
 #nohup: se descarta la entrada y se añade la salida a 'nohup.out'
 
+ps -aux
+#Sleep file
