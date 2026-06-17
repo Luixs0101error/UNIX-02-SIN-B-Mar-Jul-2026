@@ -63,3 +63,14 @@ fg %1
 #[1]+  Hecho                      sleep 100
 
 
+nohup ./exercise2.sh &
+#[1] 31621
+#nohup: se descarta la entrada y se añade la salida a 'nohup.out'
+
+chmod u+x  exercise2.sh
+#[1]+  Hecho                      nohup ./exercise2.sh
+
+nohup ./exercise2.sh &
+#[1] 35595
+#nohup: se descarta la entrada y se añade la salida a 'nohup.out'
+
