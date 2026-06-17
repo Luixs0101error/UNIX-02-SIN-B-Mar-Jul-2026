@@ -26,3 +26,9 @@ awk 'NR < 10' log.txt
 #73.166.162.225 - - [19/Dec/2020:14:58:59 +0100] "GET /favicon.ico HTTP/1.1" 404 217 "http://www.almhuette-raith.at/apache-log/access.log" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36" "-"
 
 grep "42.236.10.117" log.txt | awk '{print $7}'
+
+sed 's/Mozilla/Godzilla/g' log.txt
+sed -i 's/Mozilla/Godzilla/g' log.txt
+
+
+sed 's/ //g' log.txt
