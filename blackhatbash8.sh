@@ -32,3 +32,21 @@ sed -i 's/Mozilla/Godzilla/g' log.txt
 
 
 sed 's/ //g' log.txt
+sed '1d' newlog.txt
+sed '1d' log.txt > newlog2.txt
+sed '$d' newlog.txt
+sed '$d' newlog.txt > newlogl.txt
+sed '5,7d' newlog.txt > newlog57.txt
+sed -n '2,15 p' log.txt
+
+sleep 100 &
+#[1] 22866
+ps -ef | grep sleep
+#root           1       0  0 12:12 ?        00:00:00 /bin/sh -c echo Container started trap "exit 0" 15  exec "$@" while sleep 1 & wait $!; do :; done -
+#root       22866     331  0 13:09 pts/0    00:00:00 sleep 100
+#root       23050       1  0 13:10 ?        00:00:00 sleep 1
+#root       23053     331  0 13:10 pts/0    00:00:00 grep --color=auto sleep
+
+jobs
+#[1]+  Hecho                      sleep 100
+
